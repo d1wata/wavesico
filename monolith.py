@@ -14,13 +14,29 @@ apiKey = config['COINBASE']['api']
 secretKey = config['COINBASE']['secret']
 privKey = config['WAVES']['privkey']
 
+assetPrice = config['WAVES']['assetprice']
+
+```
+Functions
+
+```
+
+def calcAmtSent(amtUSD): 
+	total = amtUSD/assetPrice
+	return total
+
+
+
 ```
 Pseudocode/Semicode
 Piecing Ideas
 
 ```
 
-myAddress = pw.Address(privateKey=privKey)
+wavesAccount = pw.Address(privateKey=privKey)
+
+if notifReceived():
+	wavesAccount.sendAsset(otherAddress, myToken, 50)
 
 otherAddress = pw.Address('3PNTcNiUzppQXDL9RZrK3BcftbujiFqrAfM')
 myAddress.sendWaves(otherAddress, 10000000)
